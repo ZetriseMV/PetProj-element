@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   margin-left: 20px;
+  user-select: none;
   cursor: pointer;
 }
 .link_btnsMain .navBtn_Card span {
