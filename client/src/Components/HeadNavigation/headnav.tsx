@@ -11,34 +11,34 @@ export const HeadNavigation: FC = (): JSX.Element => {
     const [catalogOpen,setCatalogOpen] = useState<boolean>(false)
 
     return (
-      <div className={classes.headNav}>
-          <div className={classes.Navigate_panel}>
-              <div className={classes.image}>
-                <Link to = '/'>
-                    <img src={logo} alt='logo'/>
-                </Link>
-              </div>
-              <div className={classes.btn_handler_catalog}>
-                    <ButtonUi className={classes.btn_catalog} onClick = {() => setCatalogOpen(!catalogOpen)}>
-                    { 
-                        !catalogOpen ? <span className="material-icons-outlined">menu</span> : 
-                        <span className="material-icons-outlined">close</span> 
-                    } 
-                    Каталог
-                    </ButtonUi>
-                    {
-                        catalogOpen && <NavigateCatalog/>
-                    }
-              </div>
-              <div className={classes.search_navigate}>
-                    <InputUi className={classes.input_ui} placeholder ='Поиск товаров' type = 'text'>
-                        <span className="material-symbols-outlined">search</span>
-                    </InputUi>
-              </div>
-              <div className={classes.btn_cards}>
-                   <ListCardBtn/>
-              </div>
-          </div>
-      </div>
+        <div>
+            <div className={classes.headNav}>
+                <div className={classes.Navigate_panel}>
+                    <div className={classes.image}>
+                        <Link to = '/'>
+                            <img src={logo} alt='logo'/>
+                        </Link>
+                    </div>
+                    <div className={classes.btn_handler_catalog}>
+                            <ButtonUi className={classes.btn_catalog} onClick = {() => setCatalogOpen(!catalogOpen)}>
+                            { 
+                                !catalogOpen ? <span className="material-icons-outlined">menu</span> : 
+                                <span className="material-icons-outlined">close</span> 
+                            } 
+                            Каталог
+                            </ButtonUi>
+                    </div>
+                    <div className={classes.search_navigate}>
+                            <InputUi className={classes.input_ui} placeholder ='Поиск товаров' type = 'text'>
+                                <span className="material-symbols-outlined">search</span>
+                            </InputUi>
+                    </div>
+                    <div className={classes.btn_cards}>
+                        <ListCardBtn/>
+                    </div>
+                </div>
+            </div>
+            { catalogOpen && <NavigateCatalog/> } 
+        </div>
     );
 };

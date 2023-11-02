@@ -1,0 +1,25 @@
+.WideRight_categories {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 480px;
+  width: 900px;
+  margin-left: 30px;
+  margin-top: 10px;
+  user-select: none;
+}
+.WideRight_categories .Link_wideCategory_right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  color: black;
+  text-decoration: none;
+}
+.WideRight_categories .Link_wideCategory_right p {
+  margin-top: 5px;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+.WideRight_categories .Link_wideCategory_right:hover {
+  color: red;
+}

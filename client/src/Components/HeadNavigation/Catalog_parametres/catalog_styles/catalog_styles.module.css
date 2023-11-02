@@ -1,0 +1,14 @@
+.catalog_background {
+  margin-left: 210px;
+  margin-right: 210px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+.catalog_background .categories_content {
+  display: flex;
+  background-color: #fff;
+}
+.catalog_background .categories_content .categoryLeft {
+  display: flex;
+  flex-direction: column;
+}

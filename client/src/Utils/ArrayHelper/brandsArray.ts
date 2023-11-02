@@ -1,0 +1,53 @@
+import { RandomNumber } from './categoriesArray'
+export interface Ibrands{
+    id:number,
+    BrandLinks:string,
+    BrandImageSrc:string,
+    BackgroundColor:string,
+    altBrands:string;
+}
+
+export const ArrayBrands:Ibrands[] = [
+    {
+        id:RandomNumber(200,1000),
+        BrandLinks:'/huawei',
+        BrandImageSrc:'https://5element.by/upload/uf/0b3/0b3e8b5579c66b56c69a81f9e0bdff03.jpg',
+        BackgroundColor:'red',
+        altBrands:'logo-huawei'
+    },
+    {
+        id:RandomNumber(200,1000),
+        BrandLinks:'/xiaomi',
+        BrandImageSrc:'https://5element.by/upload/uf/3b6/3b6208073f3b6e66a96e4f9174c0684d.jpg',
+        BackgroundColor:'orange',
+        altBrands:'logo-xiaomi'
+    },
+    {
+        id:RandomNumber(200,1000),
+        BrandLinks:'/lg',
+        BrandImageSrc:'https://5element.by/upload/uf/758/75809e3ba219b2c4e35cb677c86a5998.jpg',
+        BackgroundColor:'red',
+        altBrands:'logo-lg'
+    },
+    {
+        id:RandomNumber(200,1000),
+        BrandLinks:'/samsung',
+        BrandImageSrc:'https://5element.by/upload/uf/172/172b75b774217c5b57c2cece9ae14f6d.jpg',
+        BackgroundColor:'blue',
+        altBrands:'logo-samsung'
+    },
+    {
+        id:RandomNumber(200,1000),
+        BrandLinks:'/haier',
+        BrandImageSrc:'https://5element.by/upload/uf/2a9/2a9d57db88137bb03a0fcd1bd4385736.jpg',
+        BackgroundColor:'blue',
+        altBrands:'logo-hailer'
+    },
+    {
+        id:RandomNumber(200,1000),
+        BrandLinks:'/beko',
+        BrandImageSrc:'https://5element.by/upload/uf/8db/8dbb39785f49ddeeb4f9167971050a82.svg',
+        BackgroundColor:'black',
+        altBrands:'logo-beko'
+    }
+]
