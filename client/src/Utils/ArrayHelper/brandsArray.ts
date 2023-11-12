@@ -25,7 +25,7 @@ export const ArrayBrands:Ibrands[] = [
     {
         id:RandomNumber(200,1000),
         BrandLinks:'/lg',
-        BrandImageSrc:'https://5element.by/upload/uf/758/75809e3ba219b2c4e35cb677c86a5998.jpg',
+        BrandImageSrc:'https://5element.by/upload/uf/2ee/2ee4c04e8bd0fbfd18c2a46409203c55.jpg',
         BackgroundColor:'red',
         altBrands:'logo-lg'
     },
