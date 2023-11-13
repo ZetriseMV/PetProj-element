@@ -1,18 +1,14 @@
 import {Request, Response,NextFunction} from 'express'
-
-interface infoProduct{
-    categoryName:string;
-    pullRequest:boolean;
-}
+import  DataService  from '../services/infoData-service'
+import { INavigation } from '../models/groupNavigation'
 
 class CategoryInfoController{
-    public getInfo = (req:Request,res:Response,next:NextFunction) => {
+    public getInfoNavigate = async (req:Request,res:Response,next:NextFunction) => {
         try{
-            const obj:infoProduct = {
-                categoryName:'Something',
-                pullRequest:true
-            }  
-            res.send(obj)
+            const dataNavigate:INavigation[] | null = await DataService.getInfoNavigateCategories()
+            if(dataNavigate){
+                res.status(200).json(dataNavigate)
+            }
         }catch(err){
             console.log(err)
             res.status(404).json({

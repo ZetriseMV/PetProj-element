@@ -7,11 +7,12 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 const DB_URL:string | undefined = process.env.DB_URL;
 
-
 const app:Application = express();
 
 app.use(express.json());
-app.use('/api',router);
+app.use(cors())
+
+app.get('/api/infonavigate',router)
 
 const start = async() => {
     try{
