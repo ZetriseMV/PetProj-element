@@ -1,20 +1,21 @@
 import React,{useState,useEffect,FC} from 'react'
 import { CategoryCard } from './CategoryLeftCard'
-import { ArrayCategories,ICategoriesContent } from '../../../../../Utils/ArrayHelper/categoriesArray'
+import { ICategoriesContent } from '../../../../../Utils/ArrayHelper/interfaceAllCategories'
 import ICategories from './CategoryLeftCard'
 
 interface IleftListCardLeft {
-    setStateInfo:(stateInfo:ICategories) => void;
+    setStateInfo:(stateInfo:ICategories) => void,
+    navigateCategoriesData:ICategoriesContent[]
 }
 
-export const CategoryLeftListCard:FC<IleftListCardLeft> = ({ setStateInfo }): JSX.Element => {
+export const CategoryLeftListCard:FC<IleftListCardLeft> = ({ setStateInfo,navigateCategoriesData }): JSX.Element => {
     return (
         <div>
             {
-                ArrayCategories.map((item:ICategoriesContent) => (
+                navigateCategoriesData.map((item:ICategoriesContent) => (
                     <CategoryCard 
-                        key={item.id}
-                        id={item.id}
+                        key={item._id}
+                        _id={item._id}
                         link={item.link}
                         imageSrc={item.imageSrc}
                         textName={item.textName}

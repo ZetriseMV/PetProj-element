@@ -16,7 +16,7 @@ const NavigationSchema = new mongoose.Schema<INavigation>({
         unique:true
     },
     link:{
-        type:String,
+        type:String, 
         required:true
     },
     imageSrc:{

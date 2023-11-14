@@ -1,37 +1,30 @@
 import React,{useEffect,useState,FC,createContext} from 'react'
-import axios,{ AxiosResponse } from 'axios'
 import { CategoryLeftListCard } from './CategoryHelper/LeftCategories/CategoryLeftListcard'
 import classes from './catalog_styles/catalog_styles.module.css'
 import { CategoryRightCard } from './CategoryHelper/RightCategories/CategoryRightCard'
-import { ArrayCategories } from '../../../Utils/ArrayHelper/categoriesArray'
 import  ICategories  from './CategoryHelper/LeftCategories/CategoryLeftCard'
-import { DB_URL } from '../../../API/api'
+import { ICategoriesContent } from '../../../Utils/ArrayHelper/interfaceAllCategories'
 
 export const ObjectCategoryContext = createContext<ICategories | null>(null)
 
-export const NavigateCatalog : FC = (): JSX.Element => {
-    useEffect(() => {
-        try{
-            axios.get(DB_URL + '/infonavigate')
-                .then((response:AxiosResponse) => console.log(response.data))
-                .catch((err) => console.log(err))
-        }catch(error) {
-            throw new Error(error as string)
-        }
-    },[])
+export type CategoriesPropsfromApiToCatalog = {
+    navigateCategoriesData:ICategoriesContent[]
+}
+
+export const NavigateCatalog:FC<CategoriesPropsfromApiToCatalog> = ({ navigateCategoriesData }): JSX.Element => {
     const [stateInfo, setStateInfo] = useState<ICategories>({
-        link:ArrayCategories[0].link,
-        advanceCategories: ArrayCategories[0].advanceCategories
+        link:navigateCategoriesData[0].link,
+        advanceCategories: navigateCategoriesData[0].advanceCategories
     });
     return (
         <div className={classes.catalog_background}>
             <div className={classes.categories_content}>
-            <ObjectCategoryContext.Provider value={ stateInfo }>
+            <ObjectCategoryContext.Provider value={ stateInfo }> {/* есь возможность добавить 2 свойятво в createContext */}
                 <div className={classes.categoryLeft}>
-                    <CategoryLeftListCard setStateInfo = {setStateInfo}/>
+                    <CategoryLeftListCard setStateInfo = {setStateInfo} navigateCategoriesData = {navigateCategoriesData}/>
                 </div>
                 <div className={classes.categoryRight}>
-                    <CategoryRightCard/>
+                    <CategoryRightCard /* navigateCategoriesData = {navigateCategoriesData} *//>
                 </div>
             </ObjectCategoryContext.Provider>
             </div>

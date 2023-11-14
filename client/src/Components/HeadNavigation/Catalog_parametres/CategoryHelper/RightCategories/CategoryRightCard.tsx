@@ -4,7 +4,7 @@ import { BrandListSquares } from './BrandsSquare/BrandsListSquare'
 import { Ibrands,ArrayBrands } from '../../../../../Utils/ArrayHelper/brandsArray'
 import { ObjectCategoryContext } from '../../catalog'
 import { CategoriesWideList } from './WideRightCategories/CategoriesShuffleWideList'
-import ICategories from '../LeftCategories/CategoryLeftCard'
+import { CategoriesPropsfromApiToCatalog } from '../../catalog'
 
 const filterBrands = (brands: Ibrands[], link: string): Ibrands[] => {
     switch (link) {
@@ -24,7 +24,7 @@ export type IWideCategories  = {
     SellsLinks: string[];
 }
 
-export const CategoryRightCard = () => {
+export const CategoryRightCard:FC = ():JSX.Element => {
     const [stateArrayBrandsSquare,setStateArrayBrandsSquare] = useState<Ibrands[]>([])
     const CategoriesRight = useContext(ObjectCategoryContext)
     const isHidden:boolean | undefined = CategoriesRight?.link.includes('/actions') 
