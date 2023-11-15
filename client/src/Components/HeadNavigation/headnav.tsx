@@ -9,6 +9,7 @@ import  logo  from '../../Utils/images/5elem.png'
 import { ListCardBtn } from './btnsMain_navigate/ListCardBtn'
 import { DB_URL } from '../../API/api'
 import { ICategoriesContent } from '../../Utils/ArrayHelper/interfaceAllCategories'
+import { SubCatalogList } from './subCatalogDown/subCatalogList'
 
 export const HeadNavigation: FC = (): JSX.Element => {
     const [catalogOpen,setCatalogOpen] = useState<boolean>(false)
@@ -53,11 +54,15 @@ export const HeadNavigation: FC = (): JSX.Element => {
                         <ListCardBtn/>
                     </div>
                 </div>
+                {
+                    !catalogOpen && <SubCatalogList/>
+                }
             </div>
             { 
                 catalogOpen && navigateCategoriesData !== undefined && 
                     <NavigateCatalog navigateCategoriesData = {navigateCategoriesData}/> 
             } 
+            
         </div>
     );
 };

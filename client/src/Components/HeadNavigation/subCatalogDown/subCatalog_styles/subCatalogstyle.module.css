@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+.mainSubCatalog {
+  display: flex;
+  justify-content: center;
+}
+.mainSubCatalog .link_navigationSubCatalog {
+  text-decoration: none;
+  color: black;
+  padding-top: 5px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  transition: color 0.3s ease;
+}
+.mainSubCatalog .link_navigationSubCatalog .li_navigationSubCatalog {
+  list-style-type: none;
+  font-size: 16px;
+}
+.mainSubCatalog .link_navigationSubCatalog:hover {
+  color: red;
+}
