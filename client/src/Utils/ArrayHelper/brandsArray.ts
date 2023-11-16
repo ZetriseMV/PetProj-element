@@ -1,5 +1,5 @@
 
-function generateRandomString(): string {
+export function generateRandomString(): string {
     const length = 32;
     const characters:string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let result:string = '';
