@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import classes from './slider_styles/slider_style.module.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import settings from './settingSlider'
+import settings from './slider_helper/settingSlider'
 import { TsliderInfo,sliderObjects } from '../../Utils/importImages'
 import  { Oneslide } from './OneSlide'
 

@@ -1,10 +1,13 @@
 import React,{useState,useEffect,FC} from "react";
 import classes from './styles/mainCompon.module.css'
+import { SliderCenter } from '../Slider/slider'
 
-export const mainComponent:FC = ():JSX.Element => {
+export const MainComponent:FC = ():JSX.Element => {
     return (
-        <React.Fragment>
-            
-        </React.Fragment>
+        <div className={classes.mainContainer_content}>
+            <div className={classes.main_slider}>
+                <SliderCenter/>
+            </div>
+        </div>
     )
 }

@@ -1,0 +1,12 @@
+.slider_container {
+  max-width: 100vw;
+}
+.slider_container .container_slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider_container .container_slide img {
+  max-width: 80vw;
+  object-fit: cover;
+}

@@ -1,12 +1,15 @@
 .catalog_background {
-  margin-left: 210px;
-  margin-right: 210px;
-  margin-top: 10px;
-  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 .catalog_background .categories_content {
-  display: flex;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  position: fixed;
+  width: 85vw;
 }
 .catalog_background .categories_content .categoryLeft {
   display: flex;
