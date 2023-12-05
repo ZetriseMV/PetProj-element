@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const TelephoneSchema = require('./models/telephoneModel');
+const SchemaModel = require('./models/telephoneModel');
 const { ObjectCharacteriseTelephone,ObjectCharacteriseTV } = require('./objectInfo.js')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
@@ -24,26 +24,25 @@ const parserPuppeteer = async() =>{
     })
     const urls = await page.$$eval('.c-text',(e) => e.map(a => a.href)); // массив ссылок на смартфоны
     console.log(urls)
-     for(const url of urls) {
+     /* for(const url of urls) {
         await page.goto(url)
         const prices = await page.$$eval('.pp-price',e => e.map((price) => price.innerText));
         const namesPhones = await page.$$eval('h1.section-heading__title',e => e.map((name) => name.innerText))
         const characteristics = (await page.$$eval('td > b',(e) => e.map(b => b.innerText))).slice(0,11);
         for(let i = 0;i < characteristics.length;i++) {
-            ObjectCharacteriseTelephone[Object.keys(ObjectCharacteriseTelephone)[i]] = characteristics[i];
+            ObjectCharacteriseTV[Object.keys(ObjectCharacteriseTV)[i]] = characteristics[i];
         }
-        ObjectCharacteriseTelephone.price = prices.join('');
-        ObjectCharacteriseTelephone.namePhone = namesPhones.join(''); 
-        ObjectCharacteriseTelephone.category = 'tv';
-        console.log(ObjectCharacteriseTelephone)
-       /*  saveProductInDB(ObjectCharacterise)  */
-    }  
+        ObjectCharacteriseTV.price = prices.join('');
+        ObjectCharacteriseTV.nameTV = namesPhones.join(''); 
+        ObjectCharacteriseTV.category = 'tv';
+        saveProductInDB(ObjectCharacteriseTV)  
+    }  */ 
     await browser.close(); 
 } 
 
 const saveProductInDB = async (object) => {
     try {
-        const telephone = new TelephoneSchema(object);
+        const telephone = new SchemaModel(object);
         const result = await telephone.save();
         console.log(result);
     } catch (error) {

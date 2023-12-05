@@ -14,15 +14,16 @@ const ObjectCharacteriseTelephone = {
 
 const ObjectCharacteriseTV = {
     "brand":"",
-    "type-tv-Screen":"",
-    "form-screen":"",
+    "typeTVScreen":"",
+    "formScreen":"",
     "yearTyping":"",
     "seria":"",
-    "tv-tuner":"",
-    "smart-tv":"",
+    "tvTuner":"",
+    "smartTV":"",
     "operatingSystem":"",
     "color":"",
     "diagonalScreen":"",
+    "permission":"",
 }
 
 
