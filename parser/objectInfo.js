@@ -26,5 +26,17 @@ const ObjectCharacteriseTV = {
     "permission":"",
 }
 
+const ObjectCharacteriseVacuum = {
+    "typeVacuum":"",
+    "typeCleaning":"",
+    "typeCollectionVacuum":"",
+    "typeNutrition":"",
+    "typePower":"",
+    "color":"",
+    "other":"",
+    "volume":"",
+    "filtreVacuum":"",
+    "typeFilter":"",
+}
 
-module.exports = { ObjectCharacteriseTelephone,ObjectCharacteriseTV };
+module.exports = { ObjectCharacteriseTelephone,ObjectCharacteriseTV,ObjectCharacteriseVacuum };
