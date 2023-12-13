@@ -16,7 +16,6 @@ export interface ICategoriesWProp extends ICategoriesContent{
     setStateInfo:(state:ICategories) => void;
 }
 
-
 export const ObjectCategoryContext = createContext<ICategories | null>(null)
 
 export const CategoryCard:FC<ICategoriesWProp> = ({ link,imageSrc,textName,altImage,advanceCategories,setStateInfo }) : JSX.Element => {
