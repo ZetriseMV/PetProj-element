@@ -1,5 +1,6 @@
 .slider_container {
   max-width: 100vw;
+  padding: 20px;
 }
 .slider_container .container_slide {
   display: flex;
@@ -9,4 +10,7 @@
 .slider_container .container_slide img {
   max-width: 80vw;
   object-fit: cover;
+}
+.slider_container button {
+  display: none;
 }

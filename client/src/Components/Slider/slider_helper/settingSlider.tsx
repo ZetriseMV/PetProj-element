@@ -10,7 +10,7 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
+  prevArrow: <PrevArrow />, 
 };
 
 export default settings

@@ -11,7 +11,7 @@
 }
 .link_btnsMain .navBtn_Card span {
   color: gray;
-  font-size: 25px;
+  font-size: 2vw;
 }
 .link_btnsMain .navBtn_Card p {
   color: gray;
@@ -26,4 +26,9 @@
 .link_btnsMain .navBtn_Card:hover > span,
 .link_btnsMain .navBtn_Card:hover > p {
   color: red;
+}
+@media (max-width: 1100px) {
+  .link_btnsMain {
+    display: none;
+  }
 }

@@ -43,18 +43,17 @@ const ObjectCharactariseWashMachine = {
     "brand":"",
     "yearTyping":"",
     "builtIn":"",
-    "typeScreen":"",
     "typeMotor":"",
-    "directDrive":"",
-    "typeLoad":"",
+    "loadType":"",
     "builtInDryer":"",
     "weightDryer":"",
-    "control":""
+    "control":"",
+    "microprocessControl":"",
+    "display":""
 }
 
 const ObjectCharactariseFridge = {
     "brand":"",
-    "yearTyping":"",
     "execution":"",
     "typeFridge":"",
     "construction":"",
@@ -76,7 +75,6 @@ const ObjectCharactariseBake = {
     "retroDesign":"",
     "color":"",
     "bottomGrill":"",
-    "cookCoil":""
 }
 
 const ObjectCharactariseHeadPhones = {
@@ -101,9 +99,8 @@ const ObjectCharactariseNoteBook = {
     "factureCorpus":"",
     "color":"",
     "typeOperationSystem":"",
-    "complectation":"",
-    "diagonalScreen":""
-
+    "versionOperationSystem":"",
+    "complectation":""
 }
 
 const ObjectCharactariseStreamers = {
@@ -116,7 +113,7 @@ const ObjectCharactariseStreamers = {
     "regularSteam":"",
     "color":"",
     "volumeWater":"",
-    "socketSteam":""
+    "time":""
 }
 
 module.exports = { 

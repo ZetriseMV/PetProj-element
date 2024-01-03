@@ -1,8 +1,10 @@
 import { Router } from 'express'
-import {Request, Response,NextFunction} from 'express'
 import CategoryInfoController from '../controller/categ-info-controller'
+import ProductCategoriesController from '../controller/productsCategories-contorller'
 const router = Router();
 
-router.get('/api/infonavigate',CategoryInfoController.getInfoNavigate)
+router.get('/infonavigate',CategoryInfoController.getInfoNavigate)
+router.get('/getCategoryElelements',ProductCategoriesController.getProductsWfilter)
+
 export default router
 

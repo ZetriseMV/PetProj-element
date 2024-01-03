@@ -25,37 +25,37 @@ const subCatalogArray:IsubCatalog[] = [
     {
         _id:generateRandomString(),
         text:'Стиральные машины',
-        link:'/washmachine'
+        link:'/WashMachine'
     },
     {
         _id:generateRandomString(),
         text:'Пылесосы',
-        link:'/vaccumclean'
+        link:'/vacuum'
     },
     {
         _id:generateRandomString(),
         text:'Холодильники',
-        link:'/fridges'
+        link:'/Fridge'
     },
     {
         _id:generateRandomString(),
         text:'Микроволновые печи',
-        link:'/microwave-ovens'
+        link:'/Bake'
     },
     {
         _id:generateRandomString(),
         text:'Наушники',
-        link:'/headphones-and-headsets'
+        link:'/HeadPhones'
     },
     {
         _id:generateRandomString(),
         text:'Ноутбуки',
-        link:'/notebooks'
+        link:'/NoteBooks'
     },
     {
         _id:generateRandomString(),
         text:'Отпариватели',
-        link:'/steamers'
+        link:'/Streamers'
     },
 ]
 

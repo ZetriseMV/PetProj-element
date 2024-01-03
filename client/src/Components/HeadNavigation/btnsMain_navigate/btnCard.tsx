@@ -1,6 +1,6 @@
 import React,{useState,useEffect,FC} from 'react'
 import { Link } from 'react-router-dom';
-import classes from '../stylesNavigate/btnsList_styles/btnCard.module.css'
+import classes from './btnsList_styles/btnCard.module.css'
 
 interface IBtnCard{
     icon:string;

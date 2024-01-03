@@ -3,13 +3,13 @@ const SchemaModel = require('./models/telephoneModel');
 const { 
     ObjectCharacteriseTelephone,
     ObjectCharacteriseTV,
-    ObjectCharacteriseVacuum, //убрать пробелы из DB
-    ObjectCharactariseWashMachine,//сделать https://5element.by/catalog/1141-stiralnye-mashiny
-    ObjectCharactariseFridge,// сделать https://5element.by/catalog/513-holodilniki
-    ObjectCharactariseBake, // сделать https://5element.by/catalog/549-mikrovolnovye-pechi
-    ObjectCharactariseHeadPhones,// сделать https://5element.by/catalog/1397-naushniki
-    ObjectCharactariseNoteBook, //сделать https://5element.by/catalog/1383-noutbuki
-    ObjectCharactariseStreamers //сделать https://5element.by/catalog/739-otparivateli
+    ObjectCharacteriseVacuum, 
+    ObjectCharactariseWashMachine,
+    ObjectCharactariseFridge,
+    ObjectCharactariseBake, 
+    ObjectCharactariseHeadPhones,
+    ObjectCharactariseNoteBook,
+    ObjectCharactariseStreamers
 } = require('./objectInfo.js')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
@@ -26,14 +26,15 @@ const DBconnect = async () => {
     }
 }
 
+
 const parserPuppeteer = async(object) =>{
     const browser = await puppeteer.launch({headless: true,  });
     const page = await browser.newPage();
-    await page.goto('https://5element.by/catalog/1191-pylesosy', {
+    await page.goto('https://5element.by/catalog/739-otparivateli', {
         waitUntil:'domcontentloaded'
     })
-    const urls = await page.$$eval('.c-text',(e) => e.map(a => a.href)); // массив ссылок на смартфоны
-      /* for(const url of urls) {
+    const urls = await page.$$eval('.c-text',(e) => e.map(a => a.href));
+    for(const url of urls.slice(1,9)) {
         await page.goto(url)
         const prices = await page.$$eval('.pp-price',e => e.map((price) => price.innerText));
         const namesProduct = await page.$$eval('h1.section-heading__title',e => e.map((name) => name.innerText))
@@ -42,11 +43,12 @@ const parserPuppeteer = async(object) =>{
             object[Object.keys(object)[i]] = characteristics[i];
         }
         object.price = prices.join('');
-        object.nameVacuum = namesProduct.join(''); 
-        object.category = 'vacuum';
-
-    }   */
-    await browser.close(); 
+        object.nameNoteBook = namesProduct.join(''); 
+        object.category = 'Streamers';
+        console.log(object)
+        /* saveProductInDB(object) */
+    }   
+    await browser.close();  
 } 
 
 const saveProductInDB = async (object) => {
@@ -59,4 +61,4 @@ const saveProductInDB = async (object) => {
     }
 } 
 DBconnect();
-parserPuppeteer();  
+parserPuppeteer(ObjectCharactariseStreamers);  

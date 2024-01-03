@@ -12,7 +12,7 @@ const app:Application = express();
 app.use(express.json());
 app.use(cors())
 
-app.get('/api/infonavigate',router)
+app.use('/api',router)
 
 const start = async() => {
     try{

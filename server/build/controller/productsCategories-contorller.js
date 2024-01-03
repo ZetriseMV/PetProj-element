@@ -11,33 +11,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-const groupNavigation_1 = __importDefault(require("../models/groupNavigation"));
-const categoriesProducts_1 = __importDefault(require("../models/categoriesProducts"));
-class DataService {
-    static getInfoNavigateCategories() {
-        return __awaiter(this, void 0, void 0, function* () {
+const infoData_service_1 = __importDefault(require("../services/infoData-service"));
+class ProductCategoriesController {
+    constructor() {
+        this.getProductsWfilter = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             try {
-                const infoNavigationData = yield groupNavigation_1.default.find();
-                return infoNavigationData;
+                const { queryFilter } = req.query;
+                const products = yield infoData_service_1.default.getInfoProductsWfilter(queryFilter);
+                res.status(200).json(products);
             }
             catch (err) {
-                return null;
+                console.log(err);
+                res.status(404).json({
+                    status: false
+                });
             }
         });
     }
 }
-_a = DataService;
-DataService.getInfoProductsWfilter = (filter) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const productData = yield categoriesProducts_1.default.find({ category: filter });
-        return productData;
-    }
-    catch (error) {
-        console.log(error);
-        return null;
-    }
-});
-exports.default = DataService;
-//# sourceMappingURL=infoData-service.js.map
+exports.default = new ProductCategoriesController;
+//# sourceMappingURL=productsCategories-contorller.js.map

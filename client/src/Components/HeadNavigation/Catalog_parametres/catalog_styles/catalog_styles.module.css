@@ -2,16 +2,27 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  background-color: white;
 }
 .catalog_background .categories_content {
   background-color: #fff;
   display: flex;
   justify-content: center;
-  z-index: 2;
-  position: fixed;
-  width: 85vw;
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
 }
 .catalog_background .categories_content .categoryLeft {
   display: flex;
-  flex-direction: column;
+}
+@media (max-width: 1200px) {
+  .catalog_background .categories_content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .catalog_background .categories_content .categoryLeft {
+    display: flex;
+    flex-direction: row;
+  }
 }

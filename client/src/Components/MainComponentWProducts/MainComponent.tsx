@@ -8,6 +8,9 @@ export const MainComponent:FC = ():JSX.Element => {
             <div className={classes.main_slider}>
                 <SliderCenter/>
             </div>
+            <div className={classes.products_main}>
+                
+            </div>
         </div>
     )
 }
