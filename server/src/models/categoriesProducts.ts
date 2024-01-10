@@ -13,9 +13,12 @@ export interface IcategProducts {
     ninethLine?:string,
     tenthLine?:string,
     eleventhLine?:string,
+    twelfthLine?:string,
     nameProduct:string,
     price:string,
     category:string,
+    link:string,
+    image:string,
     __v:number,
 }
 
@@ -69,6 +72,10 @@ const ProductsSchema = new mongoose.Schema<IcategProducts>({
         type:String,
         required:false,
     },
+    twelfthLine:{
+        type:String,
+        required:false,
+    },
     nameProduct:{
         type:String,
         required:true,
@@ -79,6 +86,14 @@ const ProductsSchema = new mongoose.Schema<IcategProducts>({
         required:true,
     },
     category:{
+        type:String,
+        required:true,
+    },
+    link:{
+        type:String,
+        required:true,
+    },
+    image:{
         type:String,
         required:true,
     },

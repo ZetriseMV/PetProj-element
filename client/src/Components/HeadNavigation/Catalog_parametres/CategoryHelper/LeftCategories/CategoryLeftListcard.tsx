@@ -1,8 +1,9 @@
 import React,{useState,useEffect,FC} from 'react'
 import { CategoryCard } from './CategoryLeftCard'
-import { ICategoriesContent } from '../../../../../Utils/ArrayHelper/interfaceAllCategories'
+import  ICategoriesContent  from '../../../../../API/interface_requests'
 import ICategories from './CategoryLeftCard'
 import classes from './LeftCategories_styles/category-left-Card.module.css'
+
 interface IleftListCardLeft {
     setStateInfo:(stateInfo:ICategories) => void,
     navigateCategoriesData:ICategoriesContent[]

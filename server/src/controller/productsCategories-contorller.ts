@@ -12,7 +12,7 @@ class ProductCategoriesController{
             console.log(err)
             res.status(404).json({
                 status:false
-            })
+            }) 
         }
     }
 }

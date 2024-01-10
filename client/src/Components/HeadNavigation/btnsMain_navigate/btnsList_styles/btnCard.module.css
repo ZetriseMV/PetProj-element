@@ -1,4 +1,6 @@
 .link_btnsMain {
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
 .link_btnsMain .navBtn_Card {

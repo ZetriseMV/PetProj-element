@@ -1,5 +1,4 @@
 import React,{useState,useEffect, FC} from 'react'
-import axios,{ AxiosResponse } from 'axios'
 import { Link } from 'react-router-dom'
 import classes from './headnavigate_styles/headNav.module.css'
 import { NavigateCatalog } from './Catalog_parametres/catalog'
@@ -7,26 +6,20 @@ import { InputUi } from '../Ui/input/input'
 import { ButtonUi } from '../Ui/button/button'
 import  logo  from '../../Utils/images/5elem.png'
 import { ListCardBtn } from './btnsMain_navigate/ListCardBtn'
-import { API_ROUTE } from '../../API/api'
-import { ICategoriesContent } from '../../Utils/ArrayHelper/interfaceAllCategories'
+import  ICategoriesContent  from '../../API/interface_requests'
 import { SubCatalogList } from './subCatalogDown/subCatalogList'
+import close_svg from '../../Utils/svg-close.svg'
+import open_svg from '../../Utils/svg-menu.svg'
+import RequestsServer from '../../API/Requests'
 
 export const HeadNavigation: FC = (): JSX.Element => {
     const [catalogOpen,setCatalogOpen] = useState<boolean>(false)
     const [navigateCategoriesData,setNavigateCategoriesData] = useState<ICategoriesContent[]>()
-    const openCatalogWLoadDataCategories = () => {
-        setCatalogOpen(!catalogOpen)
-    }
+
     useEffect(() => {
-        try{
-            axios
-                .get<ICategoriesContent[]>(`${API_ROUTE}/infonavigate`)
-                .then((response:AxiosResponse<ICategoriesContent[]>) => setNavigateCategoriesData(response.data))
-                .catch((err) => console.log(err))
-        }catch(error) {
-            console.error(error)
-        }
+        RequestsServer.getElementsCatgeory(setNavigateCategoriesData)
     },[])
+    
     return (
         <header>
             <div className={classes.headNav}>
@@ -37,10 +30,10 @@ export const HeadNavigation: FC = (): JSX.Element => {
                         </Link>
                     </div>
                     <div className={classes.btn_handler_catalog}>
-                            <ButtonUi className={classes.btn_catalog} onClick = {openCatalogWLoadDataCategories} /* {() => setCatalogOpen(!catalogOpen)} */>
+                            <ButtonUi onClick = {() => setCatalogOpen(!catalogOpen)}>
                             { 
-                                !catalogOpen ? <span className="material-icons-outlined">menu</span> : 
-                                <span className="material-icons-outlined">close</span> 
+                                !catalogOpen ? <img src={open_svg} alt="" /> : 
+                                <img src={close_svg} alt="" />
                             } 
                             Каталог
                             </ButtonUi>

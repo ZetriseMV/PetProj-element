@@ -1,7 +1,7 @@
 import React,{useState,useEffect,FC,useContext,createContext} from 'react'
 import { Link } from 'react-router-dom'
 import classes from './LeftCategories_styles/category-left-Card.module.css'
-import { ICategoriesContent } from '../../../../../Utils/ArrayHelper/interfaceAllCategories'
+import  ICategoriesContent  from '../../../../../API/interface_requests'
 
 interface ICategories{
     link:string,

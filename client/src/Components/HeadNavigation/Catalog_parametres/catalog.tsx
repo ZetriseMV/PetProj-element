@@ -3,7 +3,7 @@ import { CategoryLeftListCard } from './CategoryHelper/LeftCategories/CategoryLe
 import classes from './catalog_styles/catalog_styles.module.css'
 import { CategoryRightCard } from './CategoryHelper/RightCategories/CategoryRightCard'
 import  ICategories  from './CategoryHelper/LeftCategories/CategoryLeftCard'
-import { ICategoriesContent } from '../../../Utils/ArrayHelper/interfaceAllCategories'
+import  ICategoriesContent  from '../../../API/interface_requests'
 
 export const ObjectCategoryContext = createContext<ICategories | null>(null)
 
@@ -19,12 +19,12 @@ export const NavigateCatalog:FC<CategoriesPropsfromApiToCatalog> = ({ navigateCa
     return (
         <div className={classes.catalog_background}>
             <div className={classes.categories_content}>
-            <ObjectCategoryContext.Provider value={ stateInfo }> {/* есь возможность добавить 2 свойятво в createContext */}
+            <ObjectCategoryContext.Provider value={ stateInfo }> {/* есь возможность добавить 2 свойcтво в createContext */}
                 <div className={classes.categoryLeft}>
                     <CategoryLeftListCard setStateInfo = {setStateInfo} navigateCategoriesData = {navigateCategoriesData}/>
                 </div>
                 <div className={classes.categoryRight}>
-                    <CategoryRightCard /* navigateCategoriesData = {navigateCategoriesData} *//>
+                    <CategoryRightCard/>
                 </div>
             </ObjectCategoryContext.Provider>
             </div>

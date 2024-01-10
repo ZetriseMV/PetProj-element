@@ -1,4 +1,6 @@
 import React,{useState,useEffect,FC,ReactNode} from 'react'
+import classes from './button-style.module.css'
+
 
 interface ButtonUiProps {
     className?:string;
@@ -6,9 +8,9 @@ interface ButtonUiProps {
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const ButtonUi:FC<ButtonUiProps> = ({ children,onClick,className,...rest }): JSX.Element => {
+export const ButtonUi:FC<ButtonUiProps> = ({ children,onClick,...rest }): JSX.Element => {
     return (
-        <button onClick={onClick} className={className} {...rest}>
+        <button onClick={onClick} className={classes.main_btn} {...rest}>
             { children }
         </button>
     )

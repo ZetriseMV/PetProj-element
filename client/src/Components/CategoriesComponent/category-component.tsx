@@ -1,50 +1,60 @@
-import { Link } from 'react-router-dom'
 import React,{ useState,useEffect,FC } from 'react'
-import axios,{ AxiosResponse }  from 'axios'
-import classes from './categories-components_styles/categories.module.css'
+import classes from './styles_category/category-component.module.css'
 import { useLocation,Location } from 'react-router-dom'
-import { API_ROUTE } from '../../API/api'
-
-interface IProductsApi {
-    _id:number,
-    firsLine:string,
-    secondLine:string,
-    thirdLine:string,
-    fourthLine:string,
-    fifthLine:string,
-    sixthLine:string,
-    seventhLine:string,
-    eighthLine:string,
-    ninethLine?:string,
-    tenthLine?:string,
-    eleventhLine?:string,
-    price:string,
-    nameProduct:string,
-    category:string,
-    __v:number;
-}
+import { ListCategoryProductsWithFilter } from './helper-categories/ListCategProducts'
+import RequestsServer from '../../API/Requests'
+import { IProductsApi } from '../../API/interface_requests'
+import { PaginationPages } from '../Pagination/pagination'
+import { LeftFilters } from './leftFilters_products.tsx/leftFilters'
 
 export const CategoriesComponent:FC = ():JSX.Element => {
     const [elementsCategoryArray,setElementsCategoryArray] = useState<IProductsApi[]>()
+    const [loading,setLoading] = useState<boolean>(false)
+    
+    const [currentPage,setCurrentPage] = useState<number>(1)
+    const [productsPerPage] = useState<number>(4)
+
     const location: Location<{ query: string }> = useLocation();
     const QUERY_FILTER:string = location.pathname.slice(1,location.pathname.length);
+
+    const lastProductIndex: number = currentPage * productsPerPage;
+    const firstProductIndex: number = lastProductIndex - productsPerPage;
+    const currentProducts:IProductsApi[] | undefined = elementsCategoryArray?.slice(firstProductIndex,lastProductIndex);
+
+    const paginate = (pageNumber:number) => {
+        setCurrentPage(pageNumber)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     useEffect(() => {
-        try {
-            axios.get<IProductsApi[]>(`${API_ROUTE}/getCategoryElelements`,{
-                params: {
-                    queryFilter: QUERY_FILTER
-                }
-            })
-            .then((response:AxiosResponse<IProductsApi[]>) => setElementsCategoryArray(response.data))
-            .catch((error) => console.log(error))
-        } catch (error) {
-            console.log(error)
-        }
+        RequestsServer.getCategoryWithFilter(setLoading,QUERY_FILTER,setElementsCategoryArray)
     },[QUERY_FILTER])
-    console.log(elementsCategoryArray)
+
     return (
-        <div>
-        
+        <div className={classes.main_products}> 
+            <div className={classes.left_filters}>
+                <LeftFilters 
+                    elementsCategoryArray = {elementsCategoryArray}
+                />
+            </div>
+            <div className={classes.products_W}>
+                {currentProducts && elementsCategoryArray && (
+                    <>
+                        <ListCategoryProductsWithFilter
+                            loading={loading} 
+                            currentProducts = {currentProducts}
+                        />
+                        <PaginationPages 
+                            productsPerPage = {productsPerPage}
+                            totalProducts = {elementsCategoryArray.length}
+                            paginate = {paginate}
+                        />
+                    </>
+                )}
+            </div>
         </div>
     )
 }
