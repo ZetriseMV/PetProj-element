@@ -35,6 +35,12 @@
             color:black;
             user-select: none;
         }
+        .categories_search{
+            margin-top:15px;
+            .toggle_container{
+                display:flex;
+            }
+        }
    }
 }
 @media(max-width:920px){
@@ -47,8 +53,18 @@
             display:flex;
             justify-content:center ;
             align-items: center;
+            flex-direction: column;
             .input_ui{  
                 width: 35vw;
+            }
+        }
+    }
+}
+@media(max-width:630px) {
+    .container_filters{
+        .search_navigate{
+            .input_ui{
+                width: 55vw;
             }
         }
     }

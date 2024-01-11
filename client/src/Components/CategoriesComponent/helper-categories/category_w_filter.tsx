@@ -45,13 +45,15 @@ export const OneCategoryWfilter:FC<IProductsApi> = ({
             <div className={classes.btns_cards}>
                 <div className={classes.join}>
                     <h3>{ price.trim() }</h3>
-                    <ButtonUi 
-                        onClick={(event) => event.preventDefault()}
-                    >В корзину</ButtonUi>
+                    <Link to = '/basket'>
+                        <ButtonUi 
+                            onClick={(event) => event.preventDefault()}
+                        >В корзину</ButtonUi>
+                    </Link>
                 </div>
                 <div className={classes.icons_btn}>
                 {
-                    itemsStyles.map((item:INavigateItems) => (
+                    itemsStyles.slice(0,3).map((item:INavigateItems) => (
                         <span key={item.id}>
                             <Link to={`/${item.link}`} className={classes.btn_link}>
                                 <span className="material-symbols-outlined">{item.icon}</span>

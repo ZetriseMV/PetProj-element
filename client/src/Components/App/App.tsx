@@ -5,6 +5,7 @@ import { MainComponent } from '../MainComponentWProducts/MainComponent'
 import  subCatalogArray,{ IsubCatalog } from '../../Utils/ArrayHelper/subCatalogArray'
 import { CategoriesComponent } from '../CategoriesComponent/category-component'
 import classes from './app.module.css'
+import { LoginAreaUser } from '../Login_user/login_user'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                     <Route key = {category._id} path={category.link} element={<CategoriesComponent/>}/>
                   ))
                 }
+                <Route path = '/personal_area-login' element={<LoginAreaUser/>}></Route>
               </Routes>
           </Router>
     </div>

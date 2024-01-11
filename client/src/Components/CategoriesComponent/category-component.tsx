@@ -12,7 +12,7 @@ export const CategoriesComponent:FC = ():JSX.Element => {
     const [loading,setLoading] = useState<boolean>(false)
     
     const [currentPage,setCurrentPage] = useState<number>(1)
-    const [productsPerPage] = useState<number>(4)
+    const [productsPerPage] = useState<number>(5)
 
     const location: Location<{ query: string }> = useLocation();
     const QUERY_FILTER:string = location.pathname.slice(1,location.pathname.length);
@@ -38,6 +38,7 @@ export const CategoriesComponent:FC = ():JSX.Element => {
             <div className={classes.left_filters}>
                 <LeftFilters 
                     elementsCategoryArray = {elementsCategoryArray}
+                    QUERY_FILTER = { QUERY_FILTER }
                 />
             </div>
             <div className={classes.products_W}>

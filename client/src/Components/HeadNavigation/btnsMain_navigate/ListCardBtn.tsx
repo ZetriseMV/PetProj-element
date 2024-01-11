@@ -12,7 +12,8 @@ export interface INavigateItems{
 export const itemsStyles: INavigateItems[] = [ 
     {id:1,icon:'equalizer',text:'Сравнение',link:'comparison'}, 
     {id:2,icon:'favorite',text:'Избранное',link:'favorites'}, 
-    {id:3,icon:'shopping_cart',text:'Корзина',link:'basket'} 
+    {id:3,icon:'shopping_cart',text:'Корзина',link:'basket'},
+    {id:4,icon:'person',text:'Личный кабинет',link:'personal_area-login'} 
 ] 
 export const ListCardBtn: FC = (): JSX.Element => { 
     const [openBurger,setOpenBurger] = useState<boolean>(false)
@@ -41,6 +42,9 @@ export const ListCardBtn: FC = (): JSX.Element => {
                         </li>
                         <li>
                             <Link className = {classes.Link_burger} to='/basket'>Корзина</Link>
+                        </li>
+                        <li>
+                        <Link className = {classes.Link_burger} to='/personal_area-login'>Личный кабинет</Link>
                         </li>
                     </ul>
                 </div>

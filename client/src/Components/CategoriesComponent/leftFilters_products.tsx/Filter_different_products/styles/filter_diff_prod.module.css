@@ -1,0 +1,7 @@
+.qb_line1 .toggle_container {
+  display: flex;
+  align-items: center ;
+}
+.qb_line1 .toggle_container label {
+  margin: 0;
+}
