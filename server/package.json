@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.1.0",
     "acorn": "^8.11.2",
     "acorn-walk": "^8.3.0",
     "arg": "^4.1.3",

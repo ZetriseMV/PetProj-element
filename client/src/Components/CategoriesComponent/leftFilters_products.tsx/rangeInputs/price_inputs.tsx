@@ -1,8 +1,10 @@
-import React, { useState,FC } from 'react';
+import React, { useState,FC, useEffect } from 'react';
 import classes from './styles_inputs/inputs.module.css'
-
-const MIN_PRICE = 500;
-const MAX_PRICE = 5000;
+import { useDispatch } from 'react-redux';
+import { priceProductFilter } from '../../../../store/filters/filterPrice.slice'
+import { usePathName } from '../../../../hooks/pathName'
+export const MIN_PRICE = 100;
+export const MAX_PRICE = 6000;
 
 type PriceInputProps = {
     value: number;
@@ -25,20 +27,30 @@ const PriceInput = ({ value, onChange }: PriceInputProps): JSX.Element => {
 export const PriceRange:FC = (): JSX.Element => {
     const [minPrice, setMinPrice] = useState<number>(MIN_PRICE);
     const [maxPrice, setMaxPrice] = useState<number>(MAX_PRICE);
+    const dispatch = useDispatch();
+    const location_URL = usePathName();
 
-    const handleMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newMinPrice = parseInt(event.target.value);
-        if (newMinPrice >= MIN_PRICE && newMinPrice <= MAX_PRICE) {
-            setMinPrice(newMinPrice);
-        }
-    };
+    useEffect(() => {
+        setMinPrice(MIN_PRICE);
+        setMaxPrice(MAX_PRICE)
+    },[location_URL])
 
-    const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newMaxPrice = parseInt(event.target.value);
-        if (newMaxPrice <= MAX_PRICE && newMaxPrice >= minPrice) {
-            setMaxPrice(newMaxPrice);
-        }
+    const handleMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+        const newMinPrice = parseInt(event.target.value); 
+        if (newMinPrice >= MIN_PRICE && newMinPrice <= MAX_PRICE) { 
+            setMinPrice(newMinPrice); 
+            dispatch(priceProductFilter({ min: minPrice, max: maxPrice })) 
+        } 
+    }; 
+    
+    const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => { 
+        const newMaxPrice = parseInt(event.target.value); 
+        if (newMaxPrice <= MAX_PRICE && newMaxPrice >= minPrice) { 
+            setMaxPrice(newMaxPrice); 
+            dispatch(priceProductFilter({ min: minPrice, max: maxPrice })); 
+        } 
     };
+    
 
     return (
         <div className={classes.container_range}>

@@ -1,7 +1,25 @@
 .qb_line1 .toggle_container {
   display: flex;
-  align-items: center ;
+  align-items: center;
 }
 .qb_line1 .toggle_container label {
   margin: 0;
+  font-size: 18px;
+}
+@media (max-width: 920px) {
+  .qb_line1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .qb_line1 .category_container {
+    margin-left: 3rem;
+  }
+}
+@media (max-width: 460px) {
+  .qb_line1 {
+    margin: 0 auto;
+    flex-direction: column;
+  }
 }

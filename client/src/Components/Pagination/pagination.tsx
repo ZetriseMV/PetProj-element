@@ -10,10 +10,10 @@ type PaginationProps = {
 
 export const PaginationPages: FC<PaginationProps> = ({ productsPerPage, totalProducts, paginate }: PaginationProps): JSX.Element => {
     const pageNumbers: number[] = [];
-
     for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++){
         pageNumbers.push(i);
     }
+    
 
     return (
         <div>

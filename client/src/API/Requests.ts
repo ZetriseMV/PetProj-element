@@ -6,23 +6,28 @@ import  ICategoriesContent  from './interface_requests'
 class RequestsServer{
 
     static async getCategoryWithFilter(
-        setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+        setDataLoaded: React.Dispatch<React.SetStateAction<boolean>>,
         QUERY_FILTER:string,
-        setElementsCategoryArray: (data: IProductsApi[]) => void
+        setCurrentProducts: (data: IProductsApi[]) => void,
+        setElementsCategoryArray: (data: IProductsApi[]) => void,
+        firstProductIndex:number,
+        lastProductIndex:number
     ){
-        setLoading(true);
         try {
-            axios.get<IProductsApi[]>(`${API_ROUTE}/getCategoryElelements`,{
+            axios.get<IProductsApi[]>(`${API_ROUTE}/getCategoryElelements`, {
                 params: {
                     queryFilter: QUERY_FILTER
                 }
             })
-            .then((response:AxiosResponse<IProductsApi[]>) => setElementsCategoryArray(response.data))
-            .catch((error) => console.log(error))
-            setLoading(false);
+            .then((response: AxiosResponse<IProductsApi[]>) => {
+                setElementsCategoryArray(response.data);
+                setCurrentProducts(response.data.slice(firstProductIndex, lastProductIndex));
+                setDataLoaded(true);
+            })
+            .catch((error) => console.log(error));
         } catch (error) {
-            console.log(error)
-        }
+            console.log(error);
+        } 
     }
 
     static async getElementsCatgeory(setNavigateCategoriesData: (data: ICategoriesContent[]) => void){

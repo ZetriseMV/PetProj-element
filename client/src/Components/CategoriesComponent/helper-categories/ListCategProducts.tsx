@@ -6,14 +6,9 @@ import { IProductsApi } from '../../../API/interface_requests'
 
 type Tproducts = {
     currentProducts: IProductsApi[],
-    loading:boolean
 };
 
-export const ListCategoryProductsWithFilter: FC<Tproducts> = ({ currentProducts,loading }): JSX.Element => {
-
-    if(loading) {
-        return <h2>Loading...</h2>
-    }
+export const ListCategoryProductsWithFilter: FC<Tproducts> = ({ currentProducts }): JSX.Element => {
 
     return (
         <div className={classes.products_W}>

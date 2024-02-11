@@ -6,20 +6,20 @@ import { ButtonUi } from '../../Ui/button/button'
 import { itemsStyles,INavigateItems } from '../../HeadNavigation/btnsMain_navigate/ListCardBtn'
 import { categoryData,TCategoryData } from '../helper-categoryType'
 import { generateRandomString } from '../../../Utils/ArrayHelper/brandsArray'
-
+import { useGetDateNow,useGetDateNext } from '../../../hooks/NowNextDate'
 
 export const OneCategoryWfilter:FC<IProductsApi> = ({ 
-    _id,firsLine,secondLine,thirdLine,
-    fourthLine,fifthLine,sixthLine,
-    seventhLine,eighthLine,ninethLine,
-    tenthLine,eleventhLine,price,
-    nameProduct,category,link,image,__v
+        firsLine,secondLine,thirdLine,price,
+        nameProduct,category,link,image
  }):JSX.Element => {
 
     const { label1, label2, label3 } = categoryData[category as keyof TCategoryData];
 
+    const dateNowShow = useGetDateNow();
+    const dateNextShow = useGetDateNext();
+
     return (
-        <NavLink to={`/products/${link}`} className={classes.container_product}>
+        <Link to={`/products/${link}`} className={classes.container_product}>
             <div className={classes.image}>
                 <img src={ image } alt="photo-product"/>
             </div>
@@ -38,31 +38,35 @@ export const OneCategoryWfilter:FC<IProductsApi> = ({
                     <p>{label1}: {firsLine}</p>
                     <p>{label2}: {secondLine}</p>
                     <p>{label3}: {thirdLine}</p>
-                    <p>Самовывоз: <span>Минск - Сегодня, 07.01.2024</span></p>
-                    <p>Доставка: <span>Минск - Завтра, 08.01.2024</span></p>
+                    <p>Самовывоз: 
+                        <span> Минск - Сегодня, {dateNowShow}</span>
+                    </p>
+                    <p>Доставка: 
+                        <span> Минск - Завтра, {dateNextShow}</span>
+                    </p>
                 </>
             </div>
             <div className={classes.btns_cards}>
                 <div className={classes.join}>
                     <h3>{ price.trim() }</h3>
-                    <Link to = '/basket'>
+                    <NavLink to = '/basket'>
                         <ButtonUi 
                             onClick={(event) => event.preventDefault()}
                         >В корзину</ButtonUi>
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className={classes.icons_btn}>
                 {
                     itemsStyles.slice(0,3).map((item:INavigateItems) => (
                         <span key={item.id}>
-                            <Link to={`/${item.link}`} className={classes.btn_link}>
+                            <NavLink to={`/${item.link}`} className={classes.btn_link}>
                                 <span className="material-symbols-outlined">{item.icon}</span>
-                            </Link>
+                            </NavLink>
                         </span>
                     ))
                 }
                 </div>
             </div>
-        </NavLink>
+        </Link>
     )
 }
