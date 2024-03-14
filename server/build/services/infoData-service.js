@@ -39,5 +39,25 @@ DataService.getInfoProductsWfilter = (filter) => __awaiter(void 0, void 0, void 
         return null;
     }
 });
+DataService.getProductsOnMainPage = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const categories = ['smartphones', 'vacuum', 'tv', 'WashMachine', 'HeadPhones', 'Fridge', 'Bake'];
+        const productsData = {
+            heats: {},
+            newItems: {}
+        };
+        for (const category of categories) {
+            const productsHeats = yield categoriesProducts_1.default.find({ category, heat: true });
+            const productsNewItems = yield categoriesProducts_1.default.find({ category, new: true });
+            productsData.heats[category.toLowerCase()] = productsHeats;
+            productsData.newItems[category.toLowerCase()] = productsNewItems;
+        }
+        return productsData;
+    }
+    catch (error) {
+        console.log(error);
+        return null;
+    }
+});
 exports.default = DataService;
 //# sourceMappingURL=infoData-service.js.map

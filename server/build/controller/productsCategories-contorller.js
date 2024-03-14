@@ -24,6 +24,22 @@ class ProductCategoriesController {
             catch (err) {
                 console.log(err);
                 res.status(404).json({
+                    err,
+                    status: false
+                });
+            }
+        });
+        this.getObjectMainPage = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const objectProductsMainPage = yield infoData_service_1.default.getProductsOnMainPage();
+                if (objectProductsMainPage) {
+                    res.json(objectProductsMainPage);
+                }
+            }
+            catch (err) {
+                console.log(err);
+                res.status(404).json({
+                    err,
                     status: false
                 });
             }

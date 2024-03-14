@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/infonavigate',CategoryInfoController.getInfoNavigate)
 router.get('/getCategoryElelements',ProductCategoriesController.getProductsWfilter)
-
+router.get('/getHeats&&New',ProductCategoriesController.getObjectMainPage)
 export default router
 

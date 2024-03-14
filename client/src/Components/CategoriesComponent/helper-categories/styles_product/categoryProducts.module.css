@@ -35,15 +35,6 @@
 .products_W .container_product .text_characterise h4:hover {
   color: #c73838;
 }
-.products_W .container_product .text_characterise .grade_star {
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-.products_W .container_product .text_characterise .grade_star svg {
-  color: gold;
-  margin-left: 3px;
-}
 .products_W .container_product .text_characterise p {
   font-size: 18px;
 }
@@ -65,6 +56,9 @@
 }
 .products_W .container_product .btns_cards .join h3 {
   font-size: 25px;
+}
+.products_W .container_product .btns_cards .join .navLink_button {
+  text-decoration: none;
 }
 .products_W .container_product .btns_cards .icons_btn .btn_link {
   text-decoration: none;
@@ -104,10 +98,8 @@
     margin-top: 10px;
     margin-bottom: 5px;
   }
-  .products_W .container_product .text_characterise .grade_star {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .products_W .container_product .btns_cards .join .navLink_button {
+    text-decoration: none;
   }
   .products_W .container_product .btns_cards .join h3 {
     margin-top: 7px;
@@ -138,11 +130,6 @@
     font-size: 15px;
     text-align: start;
   }
-  .products_W .container_product .text_characterise .grade_star {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
   .products_W .container_product .btns_cards .icons_btn .btn_link span {
     margin-left: 10px;
   }
@@ -163,10 +150,6 @@
   .products_W .container_product .text_characterise h4 {
     text-align: center;
   }
-  .products_W .container_product .text_characterise .grade_star {
-    align-items: center;
-    justify-content: center;
-  }
   .products_W .container_product .btns_cards .join {
     width: 30vw;
   }
@@ -186,10 +169,6 @@
   }
   .products_W .container_product .text_characterise h4 {
     text-align: start;
-  }
-  .products_W .container_product .text_characterise .grade_star {
-    align-items: flex-start;
-    justify-content: flex-start;
   }
   .products_W .container_product .image img {
     width: 20vw;

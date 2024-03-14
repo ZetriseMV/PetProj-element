@@ -6,6 +6,32 @@
 
     }
     .products_main{
-        
+    }
+    .brands_main{
+        h2{
+            text-align: center;
+            margin-top:50px;
+            margin-bottom:30px;
+        }
+    }
+    .slider_popularCategories{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        h2{
+            margin-left:9rem;
+            margin-bottom:10px;
+
+        }
     }
 }
+@media(max-width:650px) {
+    .mainContainer_content{
+        .slider_popularCategories{
+            display:none;
+            h2{
+                display:none;
+            }
+        }
+    }   
+} 

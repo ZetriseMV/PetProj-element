@@ -5,7 +5,7 @@ import { IProductsApi } from '../../../API/interface_requests'
 import { ButtonUi } from '../../Ui/button/button'
 import { itemsStyles,INavigateItems } from '../../HeadNavigation/btnsMain_navigate/ListCardBtn'
 import { categoryData,TCategoryData } from '../helper-categoryType'
-import { generateRandomString } from '../../../Utils/ArrayHelper/brandsArray'
+import { StarViewUI } from '../../Ui/star_view/starUI'
 import { useGetDateNow,useGetDateNext } from '../../../hooks/NowNextDate'
 
 export const OneCategoryWfilter:FC<IProductsApi> = ({ 
@@ -25,15 +25,7 @@ export const OneCategoryWfilter:FC<IProductsApi> = ({
             </div>
             <div className={classes.text_characterise}>
                 <h4>{ nameProduct }</h4>
-                <div className={classes.grade_star}>
-                    {
-                        [...Array(5)].map(() => (
-                            <svg key={generateRandomString()} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                        ))
-                    }
-                </div>
+                <StarViewUI/>
                 <>
                     <p>{label1}: {firsLine}</p>
                     <p>{label2}: {secondLine}</p>
@@ -49,9 +41,9 @@ export const OneCategoryWfilter:FC<IProductsApi> = ({
             <div className={classes.btns_cards}>
                 <div className={classes.join}>
                     <h3>{ price.trim() }</h3>
-                    <NavLink to = '/basket'>
+                    <NavLink to = '/basket' className={classes.navLink_button}>
                         <ButtonUi 
-                            onClick={(event) => event.preventDefault()}
+                            
                         >В корзину</ButtonUi>
                     </NavLink>
                 </div>

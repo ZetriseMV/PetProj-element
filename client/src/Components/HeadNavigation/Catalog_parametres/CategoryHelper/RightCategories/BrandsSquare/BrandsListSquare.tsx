@@ -17,6 +17,8 @@ export const BrandListSquares:FC<BrandListSquareWProp>  = (  { stateArrayBrandsS
                         BrandLinks = {item.BrandLinks}
                         BrandImageSrc = {item.BrandImageSrc}
                         altBrands = {item.altBrands}
+                        imageHeight='70px'
+                        imageWidth='120px'
                     />
                 ))
             }

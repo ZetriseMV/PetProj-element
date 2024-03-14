@@ -6,10 +6,11 @@ import  subCatalogArray,{ IsubCatalog } from '../../Utils/ArrayHelper/subCatalog
 import { CategoriesComponent } from '../CategoriesComponent/category-component'
 import classes from './app.module.css'
 import { LoginAreaUser } from '../Login_user/login_user'
+import { FooterComponent } from '../Footer/footer'
 
 function App() {
   return (
-    <div className={classes.mainApp}>
+    <>
           <Router>
               <HeadNavigation/>
               <Routes>
@@ -21,8 +22,9 @@ function App() {
                 }
                 <Route path = '/personal_area-login' element={<LoginAreaUser/>}></Route>
               </Routes>
+              <FooterComponent/>
           </Router>
-    </div>
+    </>
   )
 }
 

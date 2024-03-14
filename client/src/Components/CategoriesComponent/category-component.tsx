@@ -13,6 +13,13 @@ import { RootState } from '../../store/store'
 import { IFilterStateSuccess } from '../../store/types/filters.types'
 import { usePathName } from '../../hooks/pathName'
 
+const applyFilters = (products: IProductsApi[], filters: Record<string, any>): IProductsApi[] => {
+    return products?.filter((product) => {
+        return Object.entries(filters).every(([key, value]) => {
+            return product[key as keyof IProductsApi] === value;
+        });
+    });// функция которая смотрит сколько элементов в массиве и исходя из этого передается в pagination сколько будет страниц
+};
 
 export const CategoriesComponent:FC = ():JSX.Element => { 
     const [elementsCategoryArray,setElementsCategoryArray] = useState<IProductsApi[]>()
@@ -24,18 +31,7 @@ export const CategoriesComponent:FC = ():JSX.Element => {
     const QUERY_FILTER:string = usePathName();
     const lastProductIndex: number = currentPage * productsPerPage; 
     const firstProductIndex: number = lastProductIndex - productsPerPage;
-    const [dataLoaded, setDataLoaded] = useState(false);
-
-    useEffect(() => { // useEffect для пагинации
-        if (dataLoaded) {
-            const calculateCurrentProducts = () => {
-                const lastProductIndex: number = currentPage * productsPerPage;
-                const firstProductIndex: number = lastProductIndex - productsPerPage;
-                setCurrentProducts(elementsCategoryArray?.slice(firstProductIndex, lastProductIndex));
-            };
-            calculateCurrentProducts();
-        }
-    }, [currentPage, dataLoaded, elementsCategoryArray, productsPerPage]);    
+    const [dataLoaded, setDataLoaded] = useState(false); 
 
     useEffect(() => { // useEffect для получения данных с сервера
         RequestsServer.getCategoryWithFilter(
@@ -51,30 +47,24 @@ export const CategoriesComponent:FC = ():JSX.Element => {
 
     //что-то придумать с этим useEffect,так как он фильтрует уже отфильтрованный массив объектов(как я понимаю)
     useEffect(() => { //useEffect для фильтрации цены 
-        // надо создать копию массива 
         const { min,max } = filterPrice; 
-        const arrayWpriceFilter = elementsCategoryArray?.slice(); 
-        console.log(filterPrice) 
+        const arrayWpriceFilter = currentProducts?.slice(); 
         if(arrayWpriceFilter) { 
             const filteredArray = arrayWpriceFilter.filter(value => { 
                 return Number(value.price.replace(/\s/g, '')) >= min && Number(value.price.replace(/\s/g, '')) <= max  
             }); 
-            console.log(filteredArray); 
             if(filteredArray.length !== 0) { 
-                setElementsCategoryArray(filteredArray) 
-            } else { 
-                 
+                setCurrentProducts(filteredArray) 
             } 
-            console.log(filteredArray); 
         }  
-    },[filterPrice])
+    },[filterPrice])  
     
-    useEffect(() => { //useEffect для фильтрации товаров по input checkbox
+    useEffect(() => { //useEffect для фильтрации товаров по input checkbox (работает не трогать ничего)
         if (!dataLoaded) {
             return;
         }
         const keys: string[] = Object.keys(filters);
-    
+        
         if (keys.length <= 1) {
             setCurrentProducts(elementsCategoryArray?.slice(firstProductIndex, lastProductIndex));
         } else {
@@ -83,30 +73,9 @@ export const CategoriesComponent:FC = ():JSX.Element => {
                     return product[key as keyof IProductsApi] === value;
                 });
             });
-            console.log(filteredArray)
-            setCurrentProducts(filteredArray || []);
+            setCurrentProducts(filteredArray?.slice(firstProductIndex, lastProductIndex) || []);
         }
-    }, [filters, dataLoaded]);
-    
-
-    /* useEffect(() => { // useEffect для фильтрации (old version)
-        if (!dataLoaded) {
-            return;
-        }
-        const keys: string[] = Object.keys(filters);
-        if (keys.length <= 1) {
-            setCurrentProducts(elementsCategoryArray?.slice(firstProductIndex, lastProductIndex));
-        } else {
-            const applyFilters = (products: IProductsApi[], filters: Record<string, any>): IProductsApi[] => {
-                return products.filter((product) => {
-                    return Object.entries(filters).every(([key, value]) => {
-                        return product[key as keyof IProductsApi] === value;
-                    });
-                });
-            };
-            setCurrentProducts(elementsCategoryArray ? applyFilters(elementsCategoryArray, filters) : []);
-        }
-    }, [filters, dataLoaded]); */
+    }, [filters, dataLoaded,currentPage]); 
 
     const paginate = (pageNumber:number) => { 
         setCurrentPage(pageNumber) 
@@ -115,7 +84,7 @@ export const CategoriesComponent:FC = ():JSX.Element => {
             behavior: 'smooth' 
         }); 
     } 
-    
+    console.log(currentProducts)
     return (
         <div className={classes.main_products}> 
             <div className={classes.left_filters}>
@@ -132,7 +101,7 @@ export const CategoriesComponent:FC = ():JSX.Element => {
                         />
                         <PaginationPages 
                             productsPerPage = {productsPerPage}
-                            totalProducts = {elementsCategoryArray.length}
+                            totalProducts = {applyFilters(elementsCategoryArray, filters).length}
                             paginate = {paginate}
                         />
                     </>

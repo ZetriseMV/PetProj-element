@@ -1,0 +1,35 @@
+.grade_star {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.grade_star svg {
+  color: gold;
+  margin-left: 3px;
+}
+@media (max-width: 1100px) {
+  .grade_star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 920px) {
+  .grade_star {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 830px) {
+  .grade_star {
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .grade_star {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

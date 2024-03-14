@@ -17,7 +17,7 @@ export const HeadNavigation: FC = (): JSX.Element => {
     const [navigateCategoriesData,setNavigateCategoriesData] = useState<ICategoriesContent[]>()
 
     useEffect(() => {
-        RequestsServer.getElementsCatgeory(setNavigateCategoriesData)
+        RequestsServer.getElementsCategory(setNavigateCategoriesData)
     },[])
     
     return (

@@ -1,26 +1,6 @@
 import * as mongoose from "mongoose";
+import { IcategProducts } from '../Types/infoTypes'
 
-export interface IcategProducts {
-    id:mongoose.Schema.Types.ObjectId,
-    firsLine:string,
-    secondLine:string,
-    thirdLine:string,
-    fourthLine:string,
-    fifthLine:string,
-    sixthLine:string,
-    seventhLine:string,
-    eighthLine:string,
-    ninethLine?:string,
-    tenthLine?:string,
-    eleventhLine?:string,
-    twelfthLine?:string,
-    nameProduct:string,
-    price:string,
-    category:string,
-    link:string,
-    image:string,
-    __v:number,
-}
 
 const ProductsSchema = new mongoose.Schema<IcategProducts>({
     id:{
@@ -92,6 +72,14 @@ const ProductsSchema = new mongoose.Schema<IcategProducts>({
     link:{
         type:String,
         required:true,
+    },
+    heat:{
+        type:Boolean,
+        required:false,
+    },
+    new:{
+        type:Boolean,
+        required:false,
     },
     image:{
         type:String,

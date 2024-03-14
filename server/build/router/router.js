@@ -9,5 +9,6 @@ const productsCategories_contorller_1 = __importDefault(require("../controller/p
 const router = (0, express_1.Router)();
 router.get('/infonavigate', categ_info_controller_1.default.getInfoNavigate);
 router.get('/getCategoryElelements', productsCategories_contorller_1.default.getProductsWfilter);
+router.get('/getHeats&&New', productsCategories_contorller_1.default.getObjectMainPage);
 exports.default = router;
 //# sourceMappingURL=router.js.map

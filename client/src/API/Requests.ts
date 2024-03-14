@@ -1,7 +1,8 @@
 import axios,{ AxiosResponse } from 'axios'
 import { API_ROUTE } from './api'
-import { IProductsApi } from './interface_requests'
+import { IProductsApi,IProductsHeatsAndNews } from './interface_requests'
 import  ICategoriesContent  from './interface_requests'
+
 
 class RequestsServer{
 
@@ -30,7 +31,7 @@ class RequestsServer{
         } 
     }
 
-    static async getElementsCatgeory(setNavigateCategoriesData: (data: ICategoriesContent[]) => void){
+    static async getElementsCategory(setNavigateCategoriesData: (data: ICategoriesContent[]) => void){
         try{
             axios
                 .get<ICategoriesContent[]>(`${API_ROUTE}/infonavigate`)
@@ -40,6 +41,5 @@ class RequestsServer{
             console.error(error)
         }
     }
-    
 }
 export default RequestsServer

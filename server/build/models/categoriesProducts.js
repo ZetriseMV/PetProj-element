@@ -74,6 +74,10 @@ const ProductsSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    twelfthLine: {
+        type: String,
+        required: false,
+    },
     nameProduct: {
         type: String,
         required: true,
@@ -84,6 +88,22 @@ const ProductsSchema = new mongoose.Schema({
         required: true,
     },
     category: {
+        type: String,
+        required: true,
+    },
+    link: {
+        type: String,
+        required: true,
+    },
+    heat: {
+        type: Boolean,
+        required: false,
+    },
+    new: {
+        type: Boolean,
+        required: false,
+    },
+    image: {
         type: String,
         required: true,
     },
