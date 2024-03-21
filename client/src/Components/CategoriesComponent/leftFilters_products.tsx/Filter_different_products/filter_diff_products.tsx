@@ -20,7 +20,6 @@ export const FilterDifferentProducts:FC<TFiltersLeft> = ({ elementsCategoryArray
         else
             return undefined
     }
-
     const filteredObjectforLine = (item:IProductsApi,line:string) => {
         const category = item.category;
         let value:string = '';

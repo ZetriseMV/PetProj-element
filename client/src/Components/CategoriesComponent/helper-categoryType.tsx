@@ -17,6 +17,7 @@ export type TCategoryData = {
     HeadPhones: CategoryLabels;
     Streamers: CategoryLabels;
     NoteBooks: CategoryLabels;
+    smartphonecovers:CategoryLabels,
 }
 export const categoryData: TCategoryData = {
     smartphones: {
@@ -99,5 +100,14 @@ export const categoryData: TCategoryData = {
         label5: "Материал",
         label6: "Фактура поверхности корпуса",
         label7: "Цвет"
-    }
+    },
+    smartphonecovers:{
+        label1: "Бренд",
+        label2: "Для диагонали",
+        label3: "Совместимость с",
+        label4: "Тип",
+        label5: "Тип крепления",
+        label6: "Материал",
+        label7: "Цвет"
+    },
 };

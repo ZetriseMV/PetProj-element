@@ -58,7 +58,10 @@ export const ProductsSlider: FC<ProductSlider> = ({ nameValue, arrayNeed }): JSX
                 }) 
             } 
             </div>
-            <ListProductsSlider filteredData={filteredData} /> 
+            <ListProductsSlider 
+                filteredData={filteredData} 
+                currentEndSlice = {6}
+            /> 
         </div> 
     ) 
 }

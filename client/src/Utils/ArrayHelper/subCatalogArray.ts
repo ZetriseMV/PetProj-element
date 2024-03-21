@@ -70,4 +70,15 @@ const subCatalogArray:IsubCatalog[] = [
     },
 ]
 
+export const DeepNavCategoriesArray = [
+    {
+        _id:generateRandomString(),
+        link:'/smartphonecovers'
+    },
+    /* {
+        _id:generateRandomString(),
+        link:'/top-sellers'
+    } */
+]
+
 export default subCatalogArray

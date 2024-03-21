@@ -24,7 +24,8 @@ export const categoryMap:CategoryMap = {
     Bake: 'Микроволнновые печи',
     HeadPhones:'Наушники',
     NoteBooks:'Ноутбуки',
-    Streamers:'Отпариватели'
+    Streamers:'Отпариватели',
+    smartphonecovers:'Чехлы для телефонов'
 };
 
 export const LeftFilters:FC<TFiltersLeft> = ({ elementsCategoryArray,QUERY_FILTER }: TFiltersLeft ):JSX.Element => {

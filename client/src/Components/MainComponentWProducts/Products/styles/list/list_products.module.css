@@ -3,6 +3,21 @@
   padding-left: 80px;
   padding-right: 70px;
 }
+.list_products_main .top_sellers_Products {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.list_products_main .top_sellers_Products .text_innerJoin {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.list_products_main .top_sellers_Products .flex_products_leader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 1000px) {
   .list_products_main {
     padding: 0;
