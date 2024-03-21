@@ -21,7 +21,7 @@
 .link_product_slider h2 {
   text-align: center;
   width: 15vw;
-  font-size: 18px;
+  font-size: 16px;
 }
 .link_product_slider h4 {
   margin: 0;
@@ -43,4 +43,32 @@
 }
 .link_product_slider .icon_map span:hover {
   color: black;
+}
+@media (max-width: 1000px) {
+  .link_product_slider {
+    margin-left: 20px;
+    width: 25vw;
+    margin-right: 0;
+  }
+}
+@media (max-width: 650px) {
+  .link_product_slider {
+    width: 37vw;
+    height: 65vh;
+  }
+  .link_product_slider h2 {
+    width: 20vw;
+    font-size: 15px;
+  }
+  .link_product_slider img {
+    width: 15vw;
+  }
+}
+@media (max-width: 500px) {
+  .link_product_slider {
+    height: 55vh;
+  }
+  .link_product_slider h2 {
+    font-size: 13px;
+  }
 }

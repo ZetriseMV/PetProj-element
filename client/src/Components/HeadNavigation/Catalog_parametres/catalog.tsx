@@ -12,14 +12,16 @@ export type CategoriesPropsfromApiToCatalog = {
 }
 
 export const NavigateCatalog:FC<CategoriesPropsfromApiToCatalog> = ({ navigateCategoriesData }): JSX.Element => {
+    
     const [stateInfo, setStateInfo] = useState<ICategories>({
         link:navigateCategoriesData[0].link,
         advanceCategories: navigateCategoriesData[0].advanceCategories
     });
+
     return (
         <div className={classes.catalog_background}>
             <div className={classes.categories_content}>
-            <ObjectCategoryContext.Provider value={ stateInfo }> {/* есь возможность добавить 2 свойcтво в createContext */}
+            <ObjectCategoryContext.Provider value={ stateInfo }>
                 <div className={classes.categoryLeft}>
                     <CategoryLeftListCard setStateInfo = {setStateInfo} navigateCategoriesData = {navigateCategoriesData}/>
                 </div>

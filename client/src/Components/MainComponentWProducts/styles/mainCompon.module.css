@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+.mainContainer_content .brands_main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 .mainContainer_content .brands_main h2 {
   text-align: center;
   margin-top: 50px;
@@ -21,5 +26,11 @@
   }
   .mainContainer_content .slider_popularCategories h2 {
     display: none;
+  }
+}
+@media (max-width: 750px) {
+  .mainContainer_content .brands_main {
+    width: 60vw;
+    margin: 0 auto;
   }
 }

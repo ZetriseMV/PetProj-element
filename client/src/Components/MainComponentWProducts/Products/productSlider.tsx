@@ -1,7 +1,7 @@
 import { useEffect,useState,FC,useMemo } from "react";
 import { ArrayNames } from '../../../Utils/ArrayHelper/mainPageNames'
 import classes from './styles/productSlider/productSlider.module.css'
-import { ListProducts } from "./ListProducts";
+import { ListProductsSlider } from "./SliderProducts";
 import { IProducts,IProductsApi } from '../../../API/interface_requests'
 
 type ProductSlider = {
@@ -58,7 +58,7 @@ export const ProductsSlider: FC<ProductSlider> = ({ nameValue, arrayNeed }): JSX
                 }) 
             } 
             </div>
-            <ListProducts filteredData={filteredData} /> 
+            <ListProductsSlider filteredData={filteredData} /> 
         </div> 
     ) 
 }

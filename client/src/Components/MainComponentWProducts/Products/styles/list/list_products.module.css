@@ -3,3 +3,18 @@
   padding-left: 80px;
   padding-right: 70px;
 }
+@media (max-width: 1000px) {
+  .list_products_main {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+/* @media(max-width:800px) {
+    .list_products_main{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+} */

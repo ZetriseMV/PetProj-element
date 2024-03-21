@@ -17,16 +17,20 @@ export const FooterComponent:FC = ():JSX.Element => {
     return (
         <footer>
             <div className={classes.links_web}>
-                <SvgElement/>
-                <p>Мы в социальных сетях</p>
-                <div className={classes.web_icons_connect}>
-                    {
-                        imagesArray.map((item:TimageArrayWeb) =>(
-                            <Link to = {item.link} className={classes.cicrle} key = {item.id} onClick={handleClick}>
-                                <img src={item.image} alt={item.src} className={classes.link_logos}/>
-                            </Link>
-                        ))
-                    }
+                <div className={classes.left_part_footer}>
+                    <div className={classes.svg_textJoin}>
+                        <SvgElement/>
+                        <p>Мы в социальных сетях</p>
+                    </div>
+                    <div className={classes.web_icons_connect}>
+                        {
+                            imagesArray.map((item:TimageArrayWeb) =>(
+                                <Link to = {item.link} className={classes.cicrle} key = {item.id} onClick={handleClick}>
+                                    <img src={item.image} alt={item.src} className={classes.link_logos}/>
+                                </Link>
+                            ))
+                        }
+                    </div>
                 </div>
                 <div className={classes.newsletter_wt2}>
                     <div className={classes.join_wt2}>
@@ -37,7 +41,7 @@ export const FooterComponent:FC = ():JSX.Element => {
                     <div className={classes.input_checkbox_wt2}>
                         <input type="checkbox"/>
                         <p>
-                            Даю согласие на обработку моих персональных данных
+                            Даю согласие на обработку моих персональных данных <br />
                             для получения рекламно-информационной рассылки.
                         </p>
                     </div>
@@ -45,26 +49,28 @@ export const FooterComponent:FC = ():JSX.Element => {
             </div>
             <hr />
             <div className={classes.additionally_content}>
-                <div className={classes.text_container_add}>
-                    <p>
-                        Закрытое акционерное общество "ПАТИО" <br />
-                        220036, г. Минск, пр. Дзержинского, д. 8, каб. 1302 (13 этаж). <br />
-                        Свидетельство о государственной регистрации ЗАО «ПАТИО» выдано <br />
-                        Мингорисполкомом на основании решения от 18.04.2001 № 491. УНП 100183195. <br />
-                        Режим работы интернет-магазина: с 9.00 до 21.00 ежедневно. <br /> 
-                    </p>
-                </div>
-                <div className={classes.text_container_add}>
-                    <p>
-                        Дата включения сведений об интернет-магазине 5element.by <br />
-                        в Торговый реестр Республики Беларусь - 11.04.2018 <br />
-                        Номера городских телефонов уполномоченных по защите прав потребителей: <br />
-                        +37517-368-80-49 – администрация Московского района г. Минска; <br />
-                        +37517-218-00-82 – главное управление торговли и услуг Мингорисполкома. <br /> 
-                    </p>
+                <div className={classes.join_infoText}>
+                    <div className={classes.text_container_add}>
+                        <p>
+                            Закрытое акционерное общество "ПАТИО" 
+                            220036, г. Минск, пр. Дзержинского, д. 8, каб. 1302 (13 этаж). 
+                            Свидетельство о государственной регистрации ЗАО «ПАТИО» выдано 
+                            Мингорисполкомом на основании решения от 18.04.2001 № 491. УНП 100183195. 
+                            Режим работы интернет-магазина: с 9.00 до 21.00 ежедневно. 
+                        </p>
+                    </div>
+                    <div className={classes.text_container_add}>
+                        <p>
+                            Дата включения сведений об интернет-магазине 5element.by 
+                            в Торговый реестр Республики Беларусь - 11.04.2018 
+                            Номера городских телефонов уполномоченных по защите прав потребителей:
+                            +37517-368-80-49 – администрация Московского района г. Минска; 
+                            +37517-218-00-82 – главное управление торговли и услуг Мингорисполкома. 
+                        </p>
+                    </div>
                 </div>
                 <div className={classes.payment_variants}>
-                    <h3>Принимаем к оплате</h3>
+                    <h4>Принимаем к оплате</h4>
                     <img src={payment_image} alt="payment_categories" />
                 </div>
             </div>

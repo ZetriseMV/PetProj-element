@@ -11,6 +11,7 @@ import { SubCatalogList } from './subCatalogDown/subCatalogList'
 import close_svg from '../../Utils/svg-close.svg'
 import open_svg from '../../Utils/svg-menu.svg'
 import RequestsServer from '../../API/Requests'
+import { usePathName } from '../../hooks/pathName'
 
 export const HeadNavigation: FC = (): JSX.Element => {
     const [catalogOpen,setCatalogOpen] = useState<boolean>(false)
@@ -19,7 +20,12 @@ export const HeadNavigation: FC = (): JSX.Element => {
     useEffect(() => {
         RequestsServer.getElementsCategory(setNavigateCategoriesData)
     },[])
-    
+    const location:string = usePathName();
+
+    useEffect(() => {
+        setCatalogOpen(false)
+    },[location])
+
     return (
         <header>
             <div className={classes.headNav}>

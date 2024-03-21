@@ -30,7 +30,7 @@ const DBconnect = async () => {
 const parserPuppeteer = async(object) =>{
     const browser = await puppeteer.launch({headless: true,  });
     const page = await browser.newPage();
-    await page.goto('https://5element.by/catalog/739-otparivateli', {
+    await page.goto('https://5element.by/catalog/387-chehly-dlya-smartfonov', {
         waitUntil:'domcontentloaded'
     })
     const urls = await page.$$eval('.c-text',(e) => e.map(a => a.href));
@@ -44,7 +44,7 @@ const parserPuppeteer = async(object) =>{
         }
         object.price = prices.join('');
         object.nameNoteBook = namesProduct.join(''); 
-        object.category = 'Streamers';
+        object.category = 'caseSmartphones';
         console.log(object)
         /* saveProductInDB(object) */
     }   

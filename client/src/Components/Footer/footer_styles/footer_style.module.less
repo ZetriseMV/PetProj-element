@@ -1,46 +1,51 @@
 footer{
     margin-top:50px;
     background-color: #231f20;
+    p{
+        color:white;
+    }
     .links_web{
-        display:flex;
-        align-items: center;
-        justify-content: space-evenly;
-        padding-left:50px;
-        padding-right:50px;
-        padding-bottom:20px;
-        padding-top:20px;
-        p{
-            font-size:15px;
-        }
-        .logo_element{
-            width: 20vw;
-        }
-        p{
-            color:white;
-        }
-        .web_icons_connect{
+       display:flex;
+       align-items: center;
+        padding: 20px 50px 20px 30px;
+        .left_part_footer{
             display:flex;
-            justify-content: center;
             align-items: center;
-            .cicrle{
+            .svg_textJoin{
+                display:flex;
+                align-items: center;
+                p{
+                    margin-left:50px;
+                    margin-right:10px;
+                    font-size:15px;
+                    text-align: center;
+                }
+            }
+            .web_icons_connect{
                 display:flex;
                 justify-content: center;
                 align-items: center;
-                width: 50px;
-                height: 50px;
-                background-color: #cccbcb;
-                border-radius: 50%;
-                margin-left:10px;
-                transition:  0.5s ease-in-out;
-                .link_logos{
-                    width: 40px;
-                    height: 40px;
+                margin-right:10px;
+                .cicrle{
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50px;
+                    height: 50px;
+                    background-color: #cccbcb;
                     border-radius: 50%;
+                    margin-left:10px;
+                    transition:  0.5s ease-in-out;
+                    .link_logos{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                    }
                 }
-            }
-            .cicrle:hover{
-                background-color: #535353;
-                transform: translateY(-3px);
+                .cicrle:hover{
+                    background-color: #535353;
+                    transform: translateY(-3px);
+                }
             }
         }
         .newsletter_wt2{
@@ -52,11 +57,13 @@ footer{
                     font-size:15px;
                     color:white;
                     margin-right:10px;
+                    text-align: center;
                 }
             }
             .input_checkbox_wt2{
                 display:flex;
                 align-items:center;
+                justify-content: center;
                 flex-wrap: wrap;
                 p{
                     margin: 0;
@@ -70,24 +77,122 @@ footer{
         margin: 0;
     }
     .additionally_content{
-        background-color: black;
+        background-color: #0e0e0e;
         display:flex;
         align-items: center;
         justify-content: center;
         padding-left:70px;
         padding-right:70px;
-        .text_container_add{
-            margin-left:10px;
-            p{
-                color:#87877f;
-                font-size:10px;
+        .join_infoText{
+            display:flex;
+            align-items: center;
+            .text_container_add{
+                width:20vw;
+                margin-left:10px;
+                p{
+                    color:#87877f;
+                    font-size:10px;
+                }
             }
         }
         .payment_variants{
-            h3{
+            h4{
                 color:white;
                 margin-bottom:5px;
-                text-align: end;
+                text-align: center;
+            }
+            img{
+                width: 100%;
+                height: 8vh;
+            }
+        }
+    }
+}
+@media (max-width:1300px) {
+    footer{
+        .links_web{
+            display: flex;
+            flex-direction: column;
+            .left_part_footer{
+                display:flex;
+                align-items: center;
+                p{
+                    margin-left:50px;
+                    margin-right:10px;
+                }
+            }
+        }
+    }
+}
+@media(max-width:1200px) {
+    footer{
+        .additionally_content{
+            display:flex;
+            flex-direction: column;
+            .join_infoText{
+                flex-direction: column;
+                .text_container_add{
+                    width: 80vw;
+                }
+            }
+        }
+    }
+}
+@media(max-width:775px) {
+    footer{
+        .links_web{
+            display:flex;
+            justify-content: space-evenly;
+            .newsletter_wt2{
+                .input_checkbox_wt2{
+                    display:flex;
+                    p{
+                        text-align: center;
+                        font-size:10px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:650px) {
+    footer{
+        .links_web{
+            .left_part_footer{
+                .svg_textJoin{
+                    p{
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:550px) {
+    footer{
+        .links_web{
+            .left_part_footer{
+                .web_icons_connect{
+                    .cicrle{
+                        width: 40px;
+                        height: 40px;
+                        .link_logos{
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+            .newsletter_wt2{
+                .join_wt2{
+                    p{
+                        display:flex;
+                        flex-wrap: wrap;
+                        width: 10vw;
+                        font-size:12px;
+                        margin-right:40px;
+                    }
+                }
             }
         }
     }

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import classes from './styles/one_product/one_product.module.css'
 import { ButtonUi } from '../../Ui/button/button'
 import { itemsStyles,INavigateItems } from '../../HeadNavigation/btnsMain_navigate/ListCardBtn'
+import classesBIT from '../../CategoriesComponent/helper-categories/styles_product/categoryProducts.module.css'
 
 type IOneProduct = {
     nameProduct:string,
@@ -25,7 +26,7 @@ export const OneProduct:FC<IOneProduct> = ({ nameProduct,image,price,link }):JSX
             <div className={classes.icon_map}>
                 {
                     itemsStyles.slice(0,3).map((item:INavigateItems) => (
-                        <span className="material-symbols-outlined">{item.icon}</span>
+                    <span className="material-symbols-outlined" key={item.id}>{item.icon}</span>
                     ))
                 }
             </div>
