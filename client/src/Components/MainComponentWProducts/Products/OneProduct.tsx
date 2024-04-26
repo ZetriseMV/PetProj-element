@@ -26,7 +26,7 @@ export const OneProduct:FC<IOneProduct> = ({ nameProduct,image,price,link }):JSX
             <div className={classes.icon_map}>
                 {
                     itemsStyles.slice(0,3).map((item:INavigateItems) => (
-                    <span className="material-symbols-outlined" key={item.id}>{item.icon}</span>
+                        <span className="material-symbols-outlined" key={item.id}>{item.icon}</span>
                     ))
                 }
             </div>

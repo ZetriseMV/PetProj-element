@@ -15,7 +15,7 @@ class DataService {
     }
     public static getInfoProductsWfilter = async (filter:string) => {
         try {
-            const productData:IcategProducts[] = await ProductsSchema.find({ category:filter })
+            const productData:IcategProducts[] = await ProductsSchema.find({category:filter})
             return productData
         } catch (error) {
             console.log(error)
@@ -25,7 +25,7 @@ class DataService {
     
     public static getProductsOnMainPage = async (): Promise<IProductsOnMainPage | null> => {
         try {
-            const categories = ['smartphones', 'vacuum', 'tv', 'WashMachine', 'HeadPhones', 'Fridge', 'Bake'];
+            const categories:string[] = ['smartphones', 'vacuum', 'tv', 'WashMachine', 'HeadPhones', 'Fridge', 'Bake'];
             const productsData: IProductsOnMainPage = {
                 heats: {},
                 newItems: {}
@@ -45,7 +45,6 @@ class DataService {
             return null;
         }
     }
-    
 }
 
 export default DataService

@@ -33,5 +33,5 @@ export const ArrayNames:IarrayOnMainPageNames[] = [
     {
         _id:generateRandomString(),
         bake:'Микроволновые печи'
-    }
+    },
 ]

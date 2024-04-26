@@ -63,19 +63,3 @@ export const ListProductsSlider: FC<IListProducts> = ({ filteredData,currentEndS
     </div>
   );
 };
-
-
-      
-      {/* {widthScreen >= 1000 && pathName == '/top-sellers' ? (
-        <Slider {...settingsForSlidersProducts}>
-          {filteredData?.map((item: IProductsApi) => (
-            <OneProduct key={item._id} nameProduct={item.nameProduct} image={item.image} price={item.price} link={item.link} />
-          ))}
-        </Slider>
-      ) : (
-        <>
-          {filteredData?.slice(0, currentEndSlice).map((item: IProductsApi) => (
-            <OneProduct key={item._id} nameProduct={item.nameProduct} image={item.image} price={item.price} link={item.link} />
-          ))}
-        </>
-      )} */}

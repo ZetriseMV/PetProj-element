@@ -9,13 +9,13 @@ const ObjectCaseSmartphones = {
     "sixthLine": "",
     "seventhLine": "",
     "eighthLine": "",
-    "ninethLine": "",
+    "ninethLine": "",  
     "price": "",
     "nameProduct": "",
     "category": "",
     "link": "",
     "image":""
-}
+} 
 
 module.exports = { 
     ObjectCaseSmartphones,

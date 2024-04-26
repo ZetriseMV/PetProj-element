@@ -2,7 +2,6 @@ import React,{ useState,useEffect,FC } from 'react'
 import axios,{ AxiosResponse } from 'axios'
 import { API_ROUTE } from '../../API/api'
 import classes from './styles_category/category-component.module.css'
-import { useLocation,Location } from 'react-router-dom'
 import { ListCategoryProductsWithFilter } from './helper-categories/ListCategProducts'
 import RequestsServer from '../../API/Requests'
 import { IProductsApi } from '../../API/interface_requests'
@@ -12,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store'
 import { IFilterStateSuccess } from '../../store/types/filters.types'
 import { usePathName } from '../../hooks/pathName'
+import { ArrayBrands, Ibrands } from '../../Utils/ArrayHelper/brandsArray'
 
 const applyFilters = (products: IProductsApi[], filters: Record<string, any>): IProductsApi[] => {
     return products?.filter((product) => {
@@ -32,8 +32,8 @@ export const CategoriesComponent:FC = ():JSX.Element => {
     const lastProductIndex: number = currentPage * productsPerPage; 
     const firstProductIndex: number = lastProductIndex - productsPerPage;
     const [dataLoaded, setDataLoaded] = useState(false); 
-
-    useEffect(() => { // useEffect для получения данных с сервера
+    
+     useEffect(() => { 
         RequestsServer.getCategoryWithFilter(
             setDataLoaded,
             QUERY_FILTER,
@@ -41,9 +41,11 @@ export const CategoriesComponent:FC = ():JSX.Element => {
             setElementsCategoryArray,
             firstProductIndex,
             lastProductIndex
-        )
-        setCurrentPage(1)
+        );
+
+        setCurrentPage(1);
     }, [QUERY_FILTER]);
+
 
     //что-то придумать с этим useEffect,так как он фильтрует уже отфильтрованный массив объектов(как я понимаю)
     useEffect(() => { //useEffect для фильтрации цены 
@@ -84,29 +86,29 @@ export const CategoriesComponent:FC = ():JSX.Element => {
             behavior: 'smooth' 
         }); 
     } 
-    console.log(currentProducts)
     return (
         <div className={classes.main_products}> 
             <div className={classes.left_filters}>
                 <LeftFilters 
-                    elementsCategoryArray = {elementsCategoryArray}
-                    QUERY_FILTER = { QUERY_FILTER }
+                    elementsCategoryArray={elementsCategoryArray}
+                    QUERY_FILTER={QUERY_FILTER}
                 />
-            </div>
+                </div> 
             <div className={classes.products_W}>
                 {currentProducts && elementsCategoryArray && (
                     <>
                         <ListCategoryProductsWithFilter
-                            currentProducts = {currentProducts}
+                            currentProducts={currentProducts}
                         />
                         <PaginationPages 
-                            productsPerPage = {productsPerPage}
-                            totalProducts = {applyFilters(elementsCategoryArray, filters).length}
-                            paginate = {paginate}
+                            productsPerPage={productsPerPage}
+                            totalProducts={applyFilters(elementsCategoryArray, filters).length}
+                            paginate={paginate}
                         />
                     </>
                 )}
             </div>
         </div>
-    )
+    );
+    
 } 

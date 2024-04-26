@@ -77,24 +77,47 @@ export const FilterDifferentProducts:FC<TFiltersLeft> = ({ elementsCategoryArray
                             ))
                         }
                     </div>
-                    <div className={classes.category_container}>
-                        <div className={classes.text_filter}>
-                                <h4>{ label3 }</h4>
-                            </div>
-                        {
-                            filteredArraysLine('thirdLine')?.map((item,index) => (
-                                <div className={classes.toggle_container} key = {item._id}>
-                                    <InputCheckboxUI 
-                                        categoryArray = { filteredArraysLine('thirdLine') }
-                                        index = {index}
-                                        clickFilter = { filteredObjectforLine(item,'thirdLine') }
-                                        
-                                    />
-                                    <label >{item.thirdLine}</label>
+                    {
+                        QUERY_FILTER == '/monitors' ? 
+                            <div className={classes.category_container}>
+                                <div className={classes.text_filter}>
+                                    <h4>{ label3 }</h4>
                                 </div>
-                            ))
-                        }
-                    </div>
+                                {
+                                    filteredArraysLine('thirdLine')?.map((item,index) => (
+                                        <div className={classes.toggle_container} key = {item._id}>
+                                            <InputCheckboxUI 
+                                                categoryArray = { filteredArraysLine('thirdLine') }
+                                                index = {index}
+                                                clickFilter = { filteredObjectforLine(item,'thirdLine') }
+                                                
+                                            />
+                                            <label >{item.thirdLine}</label>
+                                        </div>
+                                    ))
+                                }
+                            </div> :
+                            <>
+                                <div className={classes.category_container}>
+                                    <div className={classes.text_filter}>
+                                        <h4>{ label2 }</h4>
+                                    </div>
+                                    {
+                                        filteredArraysLine('secondLine')?.map((item,index) => (
+                                            <div className={classes.toggle_container} key = {item._id}>
+                                                <InputCheckboxUI 
+                                                    categoryArray = { filteredArraysLine('secondLine') }
+                                                    index = {index}
+                                                    clickFilter = { filteredObjectforLine(item,'secondLine') }
+                                                    
+                                                />
+                                                <label >{item.secondLine}</label>
+                                            </div>
+                                        ))
+                                    }
+                                </div> 
+                            </>
+                    }
                     <div className={classes.category_container}>
                         <div className={classes.text_filter}>
                             <h4>{ label4 }</h4>
@@ -172,24 +195,27 @@ export const FilterDifferentProducts:FC<TFiltersLeft> = ({ elementsCategoryArray
                                     ))
                                 }
                             </div>
-                            <div className={classes.category_container}>
-                                <div className={classes.text_filter}>
-                                    <h4>{ label6 }</h4>
+                            {
+                                label6 && 
+                                    <div className={classes.category_container}>
+                                    <div className={classes.text_filter}>
+                                        <h4>{ label6 }</h4>
+                                    </div>
+                                    {
+                                        filteredArraysLine('sixthLine')?.map((item,index) => (
+                                            <div className={classes.toggle_container} key = {item._id}>
+                                                <InputCheckboxUI 
+                                                    categoryArray = { filteredArraysLine('sixthLine') }
+                                                    index = {index}
+                                                    clickFilter = { filteredObjectforLine(item,'sixthLine') }
+                                                    
+                                                />
+                                                <label >{item.sixthLine}</label>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
-                                {
-                                    filteredArraysLine('sixthLine')?.map((item,index) => (
-                                        <div className={classes.toggle_container} key = {item._id}>
-                                            <InputCheckboxUI 
-                                                categoryArray = { filteredArraysLine('sixthLine') }
-                                                index = {index}
-                                                clickFilter = { filteredObjectforLine(item,'sixthLine') }
-                                                
-                                            />
-                                            <label >{item.sixthLine}</label>
-                                        </div>
-                                    ))
-                                }
-                            </div>
+                            }
                         </>
                     }
                 </div>

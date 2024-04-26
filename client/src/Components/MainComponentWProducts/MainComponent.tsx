@@ -3,7 +3,7 @@ import classes from './styles/mainCompon.module.css'
 import { SliderCenter } from '../Slider/main_slider/slider'
 import { SliderCategories } from '../Slider/slider_categories/slider_categories'
 import { useDispatch } from "react-redux";
-import { axiosData } from '../../store/RequestsApi/requests' 
+import { fetchHeatsAndNewsData } from '../../store/RequestsApi/requests' 
 import { AppDispatch,RootState } from '../../store/store'
 import { useSelector } from "react-redux";
 import { IProducts } from '../../API/interface_requests' 
@@ -24,7 +24,7 @@ export const MainComponent:FC = ():JSX.Element => {
     },[data])
 
      useEffect(() => {
-        dispatch(axiosData())
+        dispatch(fetchHeatsAndNewsData())
     },[])
 
     return (
